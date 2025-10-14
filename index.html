@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hospital Dashboard</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <h1>🏥 Hospital Dashboard</h1>
+    <p>Reception → Laboratory → Pharmacy → Interpreter</p>
+  </header>
+
+  <main>
+    <section id="dashboard" class="modules">
+      <button onclick="openModule('Reception')">Reception</button>
+      <button onclick="openModule('Laboratory')">Laboratory</button>
+      <button onclick="openModule('Pharmacy')">Pharmacy</button>
+      <button onclick="openModule('Interpreter')">Interpreter</button>
+    </section>
+
+    <section id="modulePanel" class="hidden">
+      <div class="panel-header">
+        <h2 id="moduleTitle"></h2>
+        <button onclick="closeModule()">← Back</button>
+      </div>
+
+      <form id="patientForm" onsubmit="submitForm(event)">
+        <input id="name" placeholder="Patient name" required />
+        <input id="age" type="number" placeholder="Age" required />
+        <input id="condition" placeholder="Condition" required />
+        <textarea id="notes" placeholder="Notes"></textarea>
+        <button type="submit">Add Patient</button>
+      </form>
+
+      <h3>Patients</h3>
+      <ul id="patientList"></ul>
+    </section>
+
+    <aside id="log">
+      <h3>Activity Log</h3>
+      <ul id="activityLog"></ul>
+    </aside>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
